@@ -100,6 +100,43 @@ bluey.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
 
 
 
+hackaBLE.name=Electronut labs hackaBLE
+
+hackaBLE.upload.tool=sandeepmistry:openocd
+hackaBLE.upload.target=nrf52
+hackaBLE.upload.maximum_size=524288
+
+hackaBLE.bootloader.tool=sandeepmistry:openocd
+
+hackaBLE.build.mcu=cortex-m4
+hackaBLE.build.f_cpu=16000000
+hackaBLE.build.board=ELECTRONUT_HACKABLE
+hackaBLE.build.core=nRF5
+hackaBLE.build.variant=hackaBLE
+hackaBLE.build.variant_system_lib=
+hackaBLE.build.extra_flags=-DNRF52
+hackaBLE.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+hackaBLE.build.ldscript=nrf52_xxaa.ld
+
+hackaBLE.menu.softdevice.none=None
+hackaBLE.menu.softdevice.none.softdevice=none
+hackaBLE.menu.softdevice.none.softdeviceversion=
+
+hackaBLE.menu.softdevice.s132=S132
+hackaBLE.menu.softdevice.s132.softdevice=s132
+hackaBLE.menu.softdevice.s132.softdeviceversion=2.0.1
+hackaBLE.menu.softdevice.s132.upload.maximum_size=409600
+hackaBLE.menu.softdevice.s132.build.extra_flags=-DNRF52 -DS132 -DNRF51_S132
+hackaBLE.menu.softdevice.s132.build.ldscript=armgcc_s132_nrf52832_xxaa.ld
+
+hackaBLE.menu.lfclk.lfxo=Crystal Oscillator
+hackaBLE.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+hackaBLE.menu.lfclk.lfrc=RC Oscillator
+hackaBLE.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
+hackaBLE.menu.lfclk.lfsynt=Synthesized
+hackaBLE.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
+
+
 Blend2.name=RedBear Blend 2
 
 Blend2.vid.0=0x0204
@@ -448,6 +485,8 @@ PCA1000X.upload.setup_command=transport select swd; set WORKAREASIZE 0;
 
 PCA1000X.menu.board_variant.pca10000=PCA10000
 PCA1000X.menu.board_variant.pca10000.board.variant=PCA10000
+PCA1000X.menu.board_variant.pca10001=PCA10001
+PCA1000X.menu.board_variant.pca10001.board.variant=PCA10001
 PCA1000X.menu.board_variant.nrf6310=PCA1000X (via nRF6310)
 PCA1000X.menu.board_variant.nrf6310.board.variant=NRF6310
 
@@ -459,14 +498,14 @@ PCA1000X.menu.softdevice.s110=S110
 PCA1000X.menu.softdevice.s110.softdevice=s110
 PCA1000X.menu.softdevice.s110.softdeviceversion=8.0.0
 PCA1000X.menu.softdevice.s110.upload.maximum_size=151552
-PCA1000X.menu.softdevice.s110.build.extra_flags=-DNRF51 -DS110 -DNRF51_S110
+PCA1000X.menu.softdevice.s110.build.extra_flags=-DNRF51 -D{board.variant} -DS110 -DNRF51_S110
 PCA1000X.menu.softdevice.s110.build.ldscript=armgcc_s110_nrf51822_xxaa.ld
 
 PCA1000X.menu.softdevice.s130=S130
 PCA1000X.menu.softdevice.s130.softdevice=s130
 PCA1000X.menu.softdevice.s130.softdeviceversion=2.0.1
 PCA1000X.menu.softdevice.s130.upload.maximum_size=151552
-PCA1000X.menu.softdevice.s130.build.extra_flags=-DNRF51 -DS130 -DNRF51_S130
+PCA1000X.menu.softdevice.s130.build.extra_flags=-DNRF51 -D{board.variant} -DS130 -DNRF51_S130
 PCA1000X.menu.softdevice.s130.build.ldscript=armgcc_s130_nrf51822_xxaa.ld
 
 PCA1000X.menu.lfclk.lfxo=Crystal Oscillator
@@ -812,3 +851,50 @@ ng_beacon.menu.softdevice.s130.softdeviceversion=2.0.1
 ng_beacon.menu.softdevice.s130.upload.maximum_size=151552
 ng_beacon.menu.softdevice.s130.build.extra_flags=-DNRF51 -DS130 -DNRF51_S130
 ng_beacon.menu.softdevice.s130.build.ldscript=armgcc_s130_nrf51822_xxaa.ld
+
+
+Sinobit.name=Sino:bit
+
+Sinobit.vid.0=0x0d28
+Sinobit.pid.0=0x0204
+
+Sinobit.upload.tool=sandeepmistry:openocd
+Sinobit.upload.protocol=cmsis-dap
+Sinobit.upload.target=nrf51
+Sinobit.upload.maximum_size=262144
+Sinobit.upload.setup_command=transport select swd;
+Sinobit.upload.use_1200bps_touch=false
+Sinobit.upload.wait_for_upload_port=false
+Sinobit.upload.native_usb=false
+
+Sinobit.bootloader.tool=sandeepmistry:openocd
+
+Sinobit.build.mcu=cortex-m0
+Sinobit.build.f_cpu=16000000
+Sinobit.build.board=SINOBIT
+Sinobit.build.core=nRF5
+Sinobit.build.variant=Sinobit
+Sinobit.build.variant_system_lib=
+Sinobit.build.extra_flags=-DNRF51
+Sinobit.build.float_flags=
+Sinobit.build.ldscript=nrf51_xxaa.ld
+
+Sinobit.build.lfclk_flags=-DUSE_LFRC
+
+Sinobit.menu.softdevice.none=None
+Sinobit.menu.softdevice.none.softdevice=none
+Sinobit.menu.softdevice.none.softdeviceversion=
+
+Sinobit.menu.softdevice.s110=S110
+Sinobit.menu.softdevice.s110.softdevice=s110
+Sinobit.menu.softdevice.s110.softdeviceversion=8.0.0
+Sinobit.menu.softdevice.s110.upload.maximum_size=151552
+Sinobit.menu.softdevice.s110.build.extra_flags=-DNRF51 -DS110 -DNRF51_S110
+Sinobit.menu.softdevice.s110.build.ldscript=armgcc_s110_nrf51822_xxaa.ld
+
+Sinobit.menu.softdevice.s130=S130
+Sinobit.menu.softdevice.s130.softdevice=s130
+Sinobit.menu.softdevice.s130.softdeviceversion=2.0.1
+Sinobit.menu.softdevice.s130.upload.maximum_size=151552
+Sinobit.menu.softdevice.s130.build.extra_flags=-DNRF51 -DS130 -DNRF51_S130
+Sinobit.menu.softdevice.s130.build.ldscript=armgcc_s130_nrf51822_xxaa.ld
